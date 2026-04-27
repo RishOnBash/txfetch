@@ -21,14 +21,24 @@ A minimal system information fetcher for Termux. Bold, high-contrast and barebon
 ## Setup 
 
 1. **Clone the repository**
+```
 git clone https://github.com/RishOnBash/txfetch.git
 cd txfetch
+```
 
 2. **Install**
+```
 make install
+```
 
 3. **Run**
+```
 ~ $ txfetch
-
+```
 4. **Uninstall**
+```
 make uninstall
+```
+
+## License
+MIT
