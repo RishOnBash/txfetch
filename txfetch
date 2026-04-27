@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Color definations
+BW='\033[1;37m'
+NC='\033[0m'
+
+if [[ $(uname -o) == "Android" ]]; then
+    OS=$(uname -o)
+    OS_VER=$(getprop ro.build.version.release)
+    KERNEL=$(uname -r | cut -d'-' -f1)
+    DEVICE=$(echo "$(getprop ro.product.manufacturer) $(getprop ro.product.model)" | \
+        awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
+    PKGS=$(dpkg-query -l | grep -c "^ii")
+    RAM=$(free -m | awk 'NR==2 {print $3" / "$2" MB"}')
+    CPU=$(getprop ro.board.platform)
+    UPTIME=$(uptime -p | sed s/up// | xargs)
+    DISK=$(df -h /data | awk 'NR==2 {print $3" / "$2" ("$5")"}')
+    ARCH=$(uname -m)
+else
+    { echo "Not an Android device!"; exit 1; }
+fi
+
+display() {
+    echo -e "${BW}---------------------------------------${NC}"
+    echo -e "   ${BW}OS:${NC}       ${OS} ${OS_VER} ${ARCH}"
+    echo -e "   ${BW}DEVICE:${NC}   $DEVICE"
+    echo -e "   ${BW}KERNEL:${NC}   $KERNEL"
+    echo -e "   ${BW}CPU:${NC}      $CPU"
+    echo -e "   ${BW}DISK:${NC}     $DISK"
+    echo -e "   ${BW}RAM:${NC}      $RAM"
+    echo -e "   ${BW}PKGS:${NC}     $PKGS"
+    echo -e "   ${BW}UPTIME:${NC}   $UPTIME"
+    echo -e "${BW}---------------------------------------${NC}"
+}
+display
