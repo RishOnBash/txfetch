@@ -2,20 +2,23 @@
 
 A minimal system information fetcher for Termux. Bold, high-contrast and barebones.
 
+> Note: This is build to work for Android only.
+
 ---
 
 ## Preview
 ```
----------------------------------------
-   OS:        Android 14 aarch64
-   DEVICE:    Samsung SM-A042F
-   KERNEL:    4.19.191
-   CPU:       mt6765
-   DISK:      19G / 22G (88%)
-   RAM:       1529 / 2774 MB
-   PKGS:      489
-   UPTIME:    20 hours, 46 minutes
----------------------------------------
+-----------------------------------------
+   OS:       Android 14 aarch64
+   DEVICE:   Samsung SM-A042F
+   KERNEL:   4.19.191
+   CPU:      mt6765
+   DISK:     19G / 22G (88%)
+   RAM:      1972 / 2774 MB
+   SHELL:    bash
+   PKGS:     489
+   UPTIME:   2 hours, 41 minutes
+-----------------------------------------
 ```
 
 ## Setup 
