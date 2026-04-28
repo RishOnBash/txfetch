@@ -10,7 +10,6 @@ if [[ $(uname -o) == "Android" ]]; then
     KERNEL=$(uname -r | cut -d'-' -f1)
     DEVICE=$(echo "$(getprop ro.product.manufacturer) $(getprop ro.product.model)" | \
         awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
-    SH=${SHELL##*/}
     PKGS=$(dpkg-query -l | grep -c "^ii")
     RAM=$(free -m | awk 'NR==2 {print $3" / "$2" MB"}')
     CPU=$(getprop ro.board.platform)
@@ -29,7 +28,7 @@ display() {
     echo -e "   ${BW}CPU:${NC}      $CPU"
     echo -e "   ${BW}DISK:${NC}     $DISK"
     echo -e "   ${BW}RAM:${NC}      $RAM"
-    echo -e "   ${BW}SHELL:${NC}    $SH"
+    echo -e "   ${BW}SHELL:${NC}    ${SHELL##*/}"
     echo -e "   ${BW}PKGS:${NC}     $PKGS"
     echo -e "   ${BW}UPTIME:${NC}   $UPTIME"
     echo -e "${BW}-----------------------------------------${NC}"
