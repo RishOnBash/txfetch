@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Color definations
-BW='\033[1;37m'
-NC='\033[0m'
+BW='\033[1;37m'     # Bold White
+NC='\033[0m'        # No Color
 
 if [[ $(uname -o) == "Android" ]]; then
     OS=$(uname -o)
@@ -21,7 +21,7 @@ else
 fi
 
 display() {
-    echo -e "${BW}---------------------------------------${NC}"
+    echo -e "${BW}-----------------------------------------${NC}"
     echo -e "   ${BW}OS:${NC}       ${OS} ${OS_VER} ${ARCH}"
     echo -e "   ${BW}DEVICE:${NC}   $DEVICE"
     echo -e "   ${BW}KERNEL:${NC}   $KERNEL"
@@ -30,6 +30,6 @@ display() {
     echo -e "   ${BW}RAM:${NC}      $RAM"
     echo -e "   ${BW}PKGS:${NC}     $PKGS"
     echo -e "   ${BW}UPTIME:${NC}   $UPTIME"
-    echo -e "${BW}---------------------------------------${NC}"
+    echo -e "${BW}-----------------------------------------${NC}"
 }
 display
