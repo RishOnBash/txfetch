@@ -20,17 +20,17 @@ else
     { echo "Not an Android device!"; exit 1; }
 fi
 
-display() {
-    echo -e "${BW}-----------------------------------------${NC}"
+main() {
+    echo -e "${BW}-------------------------------------------${NC}"
     echo -e "   ${BW}OS:${NC}       ${OS} ${OS_VER} ${ARCH}"
     echo -e "   ${BW}DEVICE:${NC}   $DEVICE"
     echo -e "   ${BW}KERNEL:${NC}   $KERNEL"
     echo -e "   ${BW}CPU:${NC}      $CPU"
-    echo -e "   ${BW}DISK:${NC}     $DISK"
-    echo -e "   ${BW}RAM:${NC}      $RAM"
     echo -e "   ${BW}SHELL:${NC}    ${SHELL##*/}"
     echo -e "   ${BW}PKGS:${NC}     $PKGS"
+    echo -e "   ${BW}DISK:${NC}     $DISK"
+    echo -e "   ${BW}RAM:${NC}      $RAM"
     echo -e "   ${BW}UPTIME:${NC}   $UPTIME"
-    echo -e "${BW}-----------------------------------------${NC}"
+    echo -e "${BW}-------------------------------------------${NC}"
 }
-display
+main
