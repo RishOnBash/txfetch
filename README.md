@@ -12,7 +12,7 @@ A minimal system information fetcher for Termux. Bold, high-contrast and barebon
    OS:       Android 14 aarch64
    DEVICE:   Samsung SM-A042F
    KERNEL:   4.19.191
-   CPU:      mt6765
+   CPU:      mt6765 (8) @ 2.30 GHz
    SHELL:    bash
    PKGS:     492
    DISK:     20G / 22G (92%)
