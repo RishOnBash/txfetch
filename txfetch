@@ -13,6 +13,7 @@ if [[ $(uname -o) == "Android" ]]; then
     PKGS=$(dpkg-query -l | grep -c "^ii")
     RAM=$(free -m | awk 'NR==2 {print $3" / "$2" MB"}')
     CPU=$(getprop ro.board.platform)
+    SPEED=$(lscpu | awk '/max MHz/ {printf "%.2f GHz", $NF/1000}')
     UPTIME=$(uptime -p | sed s/up// | xargs)
     DISK=$(df -h /data | awk 'NR==2 {print $3" / "$2" ("$5")"}')
     ARCH=$(uname -m)
@@ -25,7 +26,7 @@ main() {
     echo -e "   ${BW}OS:${NC}       ${OS} ${OS_VER} ${ARCH}"
     echo -e "   ${BW}DEVICE:${NC}   $DEVICE"
     echo -e "   ${BW}KERNEL:${NC}   $KERNEL"
-    echo -e "   ${BW}CPU:${NC}      $CPU"
+    echo -e "   ${BW}CPU:${NC}      $CPU ($(nproc)) @ $SPEED"
     echo -e "   ${BW}SHELL:${NC}    ${SHELL##*/}"
     echo -e "   ${BW}PKGS:${NC}     $PKGS"
     echo -e "   ${BW}DISK:${NC}     $DISK"
