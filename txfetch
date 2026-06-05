@@ -11,7 +11,12 @@ if [[ $(uname -o) == "Android" ]]; then
     DEVICE=$(getprop ro.product.manufacturer)
     MODEL=$(getprop ro.product.model)
     PKGS=$(dpkg-query -l | grep -c "^ii")
-    RAM=$(free -m | awk 'NR==2 {print $3" / "$2" MB"}')
+    {
+        read -r _ total _
+        read -r _
+        read -r _ avail _
+    } </proc/meminfo
+    RAM="$(((total-avail)/1024)) / $((total/1024)) MB"
     CPU=$(getprop ro.board.platform)
     SPEED=$(lscpu | awk '/max MHz/ {printf "%.2f GHz", $NF/1000}')
     UPTIME=$(uptime -p)
