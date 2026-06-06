@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Color definations
 BW='\033[1;37m'     # Bold White
@@ -16,9 +16,18 @@ if [[ $(uname -o) == "Android" ]]; then
         read -r _
         read -r _ avail _
     } </proc/meminfo
+    
     RAM="$(((total-avail)/1024)) / $((total/1024)) MB"
     CPU=$(getprop ro.board.platform)
-    SPEED=$(lscpu | awk '/max MHz/ {printf "%.2f GHz", $NF/1000}')
+    
+    read khz </sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq
+    mhz=$((khz/1000))
+    SPEED="$((mhz/1000)).$(((mhz%1000)/10)) GHz"
+    
+    # this was first method i used to format the clock speed
+    # SPEED="${khz:0:-6}.${khz:1:-4} GHz"
+    # works only if the raw value is 7 digits
+    
     UPTIME=$(uptime -p)
     DISK=$(df -h /data | awk 'NR==2 {print $3" / "$2" ("$5")"}')
     ARCH=$(uname -m)
