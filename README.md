@@ -7,19 +7,10 @@ A minimal system information fetcher for Termux. Bold, high-contrast and barebon
 ---
 
 ## Preview
-```
--------------------------------------------
-   OS:       Android 14 aarch64
-   DEVICE:   Samsung SM-A042F
-   KERNEL:   4.19.191
-   CPU:      mt6765 (8) @ 2.30 GHz
-   SHELL:    bash
-   PKGS:     492
-   DISK:     20G / 22G (92%)
-   RAM:      1852 / 2774 MB
-   UPTIME:   6 days, 4 hours, 11 minutes
--------------------------------------------
-```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/07c8eb99-d604-473a-94e0-59e2d33a7368" width="80%" alt="txfetch screenshot">
+</p>
 
 ## Setup 
 
