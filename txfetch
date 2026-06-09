@@ -9,8 +9,9 @@
 #
 #
 # Color definations
-BW='\033[1;37m'     # Bold White
-NC='\033[0m'        # No Color
+LG='\e[38;5;154m'   # Lime Green (idk what to name!?)
+GC='\e[38;5;247m'   # Grey Color (kinda)
+NC='\e[0m'          # No Color
 
 if [[ $(uname -o) == "Android" ]]; then
     OS=$(uname -o)
@@ -45,15 +46,15 @@ fi
 
 main() {
     echo
-    echo -e "   ${BW}OS:${NC}       $OS $OS_VER $ARCH"
-    echo -e "   ${BW}DEVICE:${NC}   ${DEVICE^} $MODEL"
-    echo -e "   ${BW}KERNEL:${NC}   ${KERNEL%%-*}"
-    echo -e "   ${BW}CPU:${NC}      $CPU ($(nproc)) @ $SPEED"
-    echo -e "   ${BW}SHELL:${NC}    ${SHELL##*/}"
-    echo -e "   ${BW}PKGS:${NC}     $PKGS"
-    echo -e "   ${BW}DISK:${NC}     $DISK"
-    echo -e "   ${BW}RAM:${NC}      $RAM"
-    echo -e "   ${BW}UPTIME:${NC}   ${UPTIME/up }"
+    echo -e "   ${LG}OS:${NC}       ${GC}$OS $OS_VER $ARCH${NC}"
+    echo -e "   ${LG}DEVICE:${NC}   ${GC}${DEVICE^} $MODEL${NC}"
+    echo -e "   ${LG}KERNEL:${NC}   ${GC}${KERNEL%%-*}${NC}"
+    echo -e "   ${LG}CPU:${NC}      ${GC}$CPU ($(nproc)) @ $SPEED${NC}"
+    echo -e "   ${LG}SHELL:${NC}    ${GC}${SHELL##*/}${NC}"
+    echo -e "   ${LG}PKGS:${NC}     ${GC}$PKGS${NC}"
+    echo -e "   ${LG}DISK:${NC}     ${GC}$DISK${NC}"
+    echo -e "   ${LG}RAM:${NC}      ${GC}$RAM${NC}"
+    echo -e "   ${LG}UPTIME:${NC}   ${GC}${UPTIME/up }${NC}"
     echo
 }
 main
