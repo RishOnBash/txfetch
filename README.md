@@ -2,9 +2,8 @@
 
 A minimal system information fetcher for Termux. Bold, high-contrast and barebones.
 
-> Note: This is build to work for Android only.
-
----
+> \[!NOTE]
+> This is build to work for Android only.
 
 ## Preview
 
